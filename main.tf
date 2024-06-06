@@ -50,7 +50,7 @@ resource "aws_security_group" "rds" {
 
 resource "aws_db_parameter_group" "demo" {
   name   = "dademo-${random_pet.random.id}"
-  family = "postgres14"
+  family = "postgres15"
 
   parameter {
     name  = "log_connections"
@@ -69,7 +69,7 @@ resource "aws_db_instance" "demo" {
   instance_class         = "db.t3.micro"
   allocated_storage      = 5
   engine                 = "postgres"
-  engine_version         = "16"
+  engine_version         = "15.6"
   username               = var.db_username
   password               = var.db_password
   db_subnet_group_name   = aws_db_subnet_group.demo.name
